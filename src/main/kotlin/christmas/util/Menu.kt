@@ -1,4 +1,4 @@
-package christmas
+package christmas.util
 
 enum class Menu(val detailMenu: List<DetailMenu>) {
     APPETIZERS(listOf(DetailMenu.MUSHROOM_SOUP, DetailMenu.TAPAS, DetailMenu.CAESAR_SALAD)),
