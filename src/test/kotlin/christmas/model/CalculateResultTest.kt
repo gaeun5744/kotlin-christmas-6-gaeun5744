@@ -1,19 +1,26 @@
 package christmas.model
 
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 class CalculateResultTest {
 
-    @Test
-    fun `총 혜택 금액 반환 테스트`() {
-        val calculateResult = CalculateResult(
+    private lateinit var calculateResult: CalculateResult
+
+    @BeforeEach
+    fun setUp() {
+        calculateResult = CalculateResult(
             WeekEvent(date, order),
             WeekendEvent(date, order),
             SpecialEvent(date, order),
             PresentEvent(date, order),
             ChristmasEvent(date, order)
         )
+    }
+
+    @Test
+    fun `총 혜택 금액 반환 테스트`() {
         assertEquals(calculateResult.getTotalBenefit(), -31_246)
     }
 
