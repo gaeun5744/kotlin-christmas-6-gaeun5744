@@ -4,6 +4,7 @@ import christmas.util.ErrorMessage.INVALID_DATE_RANGE
 import christmas.util.ErrorMessage.INVALID_MENU
 import christmas.util.ErrorMessage.NOT_NUM
 import christmas.util.ErrorMessage.ORDER_MORE_20
+import christmas.util.ErrorMessage.ORDER_ONLY_DRINK
 
 object Validation {
 
@@ -32,6 +33,7 @@ object Validation {
         checkMenuCount(order)
         checkUniqueOrder(order)
         checkTotalCount(order)
+        checkOnlyDrink(order)
     }
 
     private fun checkValidForm(order: String) {
@@ -76,10 +78,18 @@ object Validation {
         }
     }
 
-    private fun checkTotalCount(order: String){
+    private fun checkTotalCount(order: String) {
         val refinedOrder = getRefinedOrder(order)
-        require(refinedOrder.values.sum() > 20){
+        require(refinedOrder.values.sum() > 20) {
             ORDER_MORE_20
+        }
+    }
+
+    private fun checkOnlyDrink(order: String) {
+        val nonDrinkMenus = Menu.values().filter { it != Menu.DESSERT }.flatMap { it.detailMenu }.map { it.menuName }
+        val orderMenu = getRefinedOrder(order).keys
+        require(nonDrinkMenus.intersect(orderMenu).isNotEmpty()){
+            ORDER_ONLY_DRINK
         }
     }
 
