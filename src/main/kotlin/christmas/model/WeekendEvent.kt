@@ -15,7 +15,7 @@ class WeekendEvent(private val date: Int, private val order: Map<String, Int>) {
     }
 
     private fun checkMatch(): Boolean =
-        date in period && getTotalOrderAmount(order) > 0 && getTotalOrderAmount(order) > 10_000
+        date in period && getCountMain() > 0 && getTotalOrderAmount(order) > 10_000
 
 
     private fun getCountMain(): Int {

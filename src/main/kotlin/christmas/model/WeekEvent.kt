@@ -14,11 +14,12 @@ class WeekEvent(private val date: Int, private val order: Map<String, Int>) {
     }
 
     fun checkMatch(): Boolean =
-        date in period && getTotalOrderAmount(order) > 0 && getTotalOrderAmount(order) > 10_000
+        date in period && getCountDessert() > 0 && getTotalOrderAmount(order) > 10_000
 
 
     private fun getCountDessert(): Int {
         val dessertName = Menu.DESSERT.detailMenu.map { it.menuName }
+        println(dessertName)
         return dessertName.intersect(order.keys).size
     }
 
