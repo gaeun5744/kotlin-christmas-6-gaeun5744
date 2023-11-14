@@ -11,4 +11,9 @@ class OutputView {
         }
     }
 
+    fun printTotalOrderAmount(amount: Int) {
+        println("<할인 전 총주문 금액>")
+        println("${DecimalFormat("#,###").format(amount)}원")
+    }
+
 }
