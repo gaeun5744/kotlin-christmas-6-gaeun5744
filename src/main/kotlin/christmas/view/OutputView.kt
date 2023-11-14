@@ -28,4 +28,10 @@ class OutputView {
             println("$benefits: ${DecimalFormat("#,###").format(amount)}원")
         }
     }
+
+    fun printTotalBenefit(totalBenefit:Int){
+        println("<총혜택 금액>")
+        println("${DecimalFormat("#,###").format(totalBenefit)}원")
+    }
+
 }
