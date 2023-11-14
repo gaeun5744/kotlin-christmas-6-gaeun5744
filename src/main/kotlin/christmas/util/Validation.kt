@@ -3,6 +3,7 @@ package christmas.util
 import christmas.util.ErrorMessage.INVALID_DATE_RANGE
 import christmas.util.ErrorMessage.INVALID_MENU
 import christmas.util.ErrorMessage.NOT_NUM
+import christmas.util.ErrorMessage.ORDER_MORE_20
 
 object Validation {
 
@@ -30,6 +31,7 @@ object Validation {
         checkNotMenu(order)
         checkMenuCount(order)
         checkUniqueOrder(order)
+        checkTotalCount(order)
     }
 
     private fun checkValidForm(order: String) {
@@ -71,6 +73,13 @@ object Validation {
             require(menuName.count { it == menu } == 1) {
                 INVALID_MENU
             }
+        }
+    }
+
+    private fun checkTotalCount(order: String){
+        val refinedOrder = getRefinedOrder(order)
+        require(refinedOrder.values.sum() > 20){
+            ORDER_MORE_20
         }
     }
 
