@@ -22,5 +22,13 @@ class ValidationTest {
         }.hasMessage("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.")
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = ["샴페인-1","해산물파스타-10,크리스마스파스타-10,초코케이크-10"])
+    fun `주문 불가 상황 테스트`(order: String){
+        assertThatThrownBy {
+            Validation.checkMenu(order)
+        }.isInstanceOf(IllegalArgumentException::class.java).hasMessageContaining("[ERROR]")
+    }
+
 
 }
