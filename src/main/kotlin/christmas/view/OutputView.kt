@@ -16,4 +16,9 @@ class OutputView {
         println("${DecimalFormat("#,###").format(amount)}원")
     }
 
+    fun printPresent(isPresent:Boolean){
+        println("<증정 메뉴>")
+        if (isPresent) println("샴페인 1개") else println("없음")
+    }
+
 }
