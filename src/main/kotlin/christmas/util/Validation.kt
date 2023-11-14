@@ -82,7 +82,7 @@ object Validation {
 
     private fun checkTotalCount(order: String) {
         val refinedOrder = getRefinedOrder(order)
-        require(refinedOrder.values.sum() > 20) {
+        require(refinedOrder.values.sum() <= 20) {
             ORDER_MORE_20
         }
     }
