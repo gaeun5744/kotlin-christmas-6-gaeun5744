@@ -27,6 +27,8 @@ object Validation {
 
     fun checkMenu(order: String) {
         checkValidForm(order)
+        checkNotMenu(order)
+
     }
 
     private fun checkValidForm(order: String) {
@@ -40,6 +42,16 @@ object Validation {
     private fun getRefinedOrder(order: String) = order.split(",").associate { order ->
         val (key, value) = order.split("-")
         key to value.toInt()
+    }
+
+    private fun checkNotMenu(order: String) {
+        val refinedOrder = getRefinedOrder(order)
+        val menuName = DetailMenu.values().map { it.menuName }
+        refinedOrder.keys.forEach { menu ->
+            require(menuName.contains(menu)) {
+                INVALID_MENU
+            }
+        }
     }
 
 }
