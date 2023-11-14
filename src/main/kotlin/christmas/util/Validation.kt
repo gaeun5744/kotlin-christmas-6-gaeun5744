@@ -1,8 +1,7 @@
 package christmas.util
 
-import christmas.util.ErrorMessage.INVALID_DATE_RANGE
+import christmas.util.ErrorMessage.INVALID_DATE
 import christmas.util.ErrorMessage.INVALID_MENU
-import christmas.util.ErrorMessage.NOT_NUM
 import christmas.util.ErrorMessage.ORDER_MORE_20
 import christmas.util.ErrorMessage.ORDER_ONLY_DRINK
 
@@ -17,13 +16,13 @@ object Validation {
         try {
             date.toInt()
         } catch (e: NumberFormatException) {
-            throw NumberFormatException(NOT_NUM)
+            throw NumberFormatException(INVALID_DATE)
         }
     }
 
     private fun checkDateRange(date: String) {
         require(date.toInt() in 1..31) {
-            INVALID_DATE_RANGE
+            INVALID_DATE
         }
     }
 
