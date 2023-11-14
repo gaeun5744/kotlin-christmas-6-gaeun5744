@@ -1,23 +1,26 @@
 package christmas.model
 
+import christmas.util.Badge
 import christmas.util.DetailMenu
 
-object CalculateResult{
+class CalculateResult(
+    private val weekEvent: WeekEvent,
+    private val weekendEvent: WeekendEvent,
+    private val specialEvent: SpecialEvent,
+    private val presentEvent: PresentEvent,
+    private val christmasEvent: ChristmasEvent,
+) {
 
     fun getTotalBenefit(
-        weekEvent: Int,
-        weekendEvent: Int,
-        specialEvent: Int,
-        presentEvent: Int,
-        christmasEvent: Int
-    ): Int {
-        return weekEvent + weekendEvent + specialEvent + presentEvent + christmasEvent
+    ): Int =
+        weekEvent.getBenefitAmount() + weekendEvent.getBenefitAmount() + specialEvent.getBenefitAmount() + presentEvent.getBenefitAmount() + christmasEvent.getDiscountAmount()
+
+    companion object {
+        fun getTotalOrderAmount(order: Map<String, Int>): Int = order.map { (menu, count) ->
+            val menu = DetailMenu.values().first { it.menuName == menu }
+            menu.price * count
+        }.sum()
+
     }
-
-    fun getTotalOrderAmount(order: Map<String, Int>): Int = order.map { (menu, count) ->
-        val menu = DetailMenu.values().first { it.menuName == menu }
-        menu.price * count
-    }.sum()
-
 
 }
