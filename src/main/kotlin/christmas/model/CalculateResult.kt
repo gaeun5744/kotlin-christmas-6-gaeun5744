@@ -15,6 +15,18 @@ class CalculateResult(
     ): Int =
         weekEvent.getBenefitAmount() + weekendEvent.getBenefitAmount() + specialEvent.getBenefitAmount() + presentEvent.getBenefitAmount() + christmasEvent.getDiscountAmount()
 
+
+    fun getEventBadge(): Badge {
+        val totalBenefit = - getTotalBenefit()
+        return when {
+            totalBenefit > Badge.STAR.criteriaAmount -> Badge.STAR
+            totalBenefit > Badge.TREE.criteriaAmount -> Badge.TREE
+            totalBenefit > Badge.SANTA.criteriaAmount -> Badge.SANTA
+            else -> Badge.NOTHING
+        }
+    }
+
+
     companion object {
         fun getTotalOrderAmount(order: Map<String, Int>): Int = order.map { (menu, count) ->
             val menu = DetailMenu.values().first { it.menuName == menu }
