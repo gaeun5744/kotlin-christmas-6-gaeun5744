@@ -17,11 +17,11 @@ class CalculateResult(
 
 
     fun getEventBadge(): Badge {
-        val totalBenefit = - getTotalBenefit()
+        val totalBenefit = -getTotalBenefit()
         return when {
-            totalBenefit > Badge.STAR.criteriaAmount -> Badge.STAR
-            totalBenefit > Badge.TREE.criteriaAmount -> Badge.TREE
             totalBenefit > Badge.SANTA.criteriaAmount -> Badge.SANTA
+            totalBenefit > Badge.TREE.criteriaAmount -> Badge.TREE
+            totalBenefit > Badge.STAR.criteriaAmount -> Badge.STAR
             else -> Badge.NOTHING
         }
     }
