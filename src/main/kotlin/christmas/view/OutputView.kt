@@ -34,4 +34,8 @@ class OutputView {
         println("${DecimalFormat("#,###").format(totalBenefit)}원")
     }
 
+    fun printActualPayment(actualPayment: Int){
+        println("<할인 후 예상 결제 금액>")
+        println("${DecimalFormat("#,###").format(actualPayment)}원")
+    }
 }
