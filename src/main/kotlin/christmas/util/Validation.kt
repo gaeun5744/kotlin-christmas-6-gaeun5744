@@ -41,6 +41,8 @@ object Validation {
             getRefinedOrder(order)
         } catch (e: IllegalArgumentException) {
             throw IllegalArgumentException(INVALID_MENU)
+        } catch (e: IndexOutOfBoundsException) {
+            throw java.lang.IndexOutOfBoundsException(INVALID_MENU)
         }
     }
 
@@ -88,7 +90,7 @@ object Validation {
     private fun checkOnlyDrink(order: String) {
         val nonDrinkMenus = Menu.values().filter { it != Menu.DESSERT }.flatMap { it.detailMenu }.map { it.menuName }
         val orderMenu = getRefinedOrder(order).keys
-        require(nonDrinkMenus.intersect(orderMenu).isNotEmpty()){
+        require(nonDrinkMenus.intersect(orderMenu).isNotEmpty()) {
             ORDER_ONLY_DRINK
         }
     }
