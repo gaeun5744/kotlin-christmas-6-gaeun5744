@@ -88,7 +88,7 @@ object Validation {
     }
 
     private fun checkOnlyDrink(order: String) {
-        val nonDrinkMenus = Menu.values().filter { it != Menu.DESSERT }.flatMap { it.detailMenu }.map { it.menuName }
+        val nonDrinkMenus = Menu.values().filter { it != Menu.DRINK }.flatMap { it.detailMenu }.map { it.menuName }
         val orderMenu = getRefinedOrder(order).keys
         require(nonDrinkMenus.intersect(orderMenu).isNotEmpty()) {
             ORDER_ONLY_DRINK
