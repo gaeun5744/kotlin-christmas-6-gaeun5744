@@ -1,6 +1,6 @@
 package christmas.model
 
-import christmas.model.CalculateResult.getTotalOrderAmount
+import christmas.model.CalculateResult.Companion.getTotalOrderAmount
 
 class PresentEvent(private val date: Int, private val order: Map<String, Int>) {
 
