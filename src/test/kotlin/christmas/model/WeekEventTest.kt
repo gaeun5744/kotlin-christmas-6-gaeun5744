@@ -11,7 +11,7 @@ class WeekEventTest {
     @ParameterizedTest
     @MethodSource("provideCheckMatchExample")
     fun `평일 이벤트 적용 여부 테스트`(weekEvent: WeekEvent, expectedResult: Boolean) {
-        assertThat(weekEvent.checkMatch()).isEqualTo(expectedResult)
+        assertEquals(weekEvent.checkMatch(), expectedResult)
     }
 
     @ParameterizedTest
