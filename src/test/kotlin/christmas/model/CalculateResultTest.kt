@@ -1,5 +1,6 @@
 package christmas.model
 
+import christmas.model.CalculateResult.Companion.getTotalOrderAmount
 import christmas.util.Badge
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
@@ -28,6 +29,11 @@ class CalculateResultTest {
     @Test
     fun `이벤트 배지 테스트`(){
         assertEquals(calculateResult.getEventBadge(), Badge.SANTA)
+    }
+
+    @Test
+    fun `총 주문 금액 테스트`(){
+        assertEquals(getTotalOrderAmount(order), 142_000)
     }
 
     companion object {
