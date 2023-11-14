@@ -38,4 +38,9 @@ class OutputView {
         println("<할인 후 예상 결제 금액>")
         println("${DecimalFormat("#,###").format(actualPayment)}원")
     }
+
+    fun printBadge(badge: Badge){
+        println("<12월 이벤트 배지>")
+        println(badge.badgeName)
+    }
 }
