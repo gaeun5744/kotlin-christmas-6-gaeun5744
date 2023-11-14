@@ -21,4 +21,11 @@ class OutputView {
         if (isPresent) println("샴페인 1개") else println("없음")
     }
 
+    fun printBenefitDetails(benefits:Map<String,Int>){
+        println("<혜택 내역>")
+        if (benefits.isEmpty()) println("없음")
+        benefits.forEach { (benefits, amount) ->
+            println("$benefits: ${DecimalFormat("#,###").format(amount)}원")
+        }
+    }
 }
