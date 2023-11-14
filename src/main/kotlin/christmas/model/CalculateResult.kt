@@ -26,6 +26,15 @@ class CalculateResult(
         }
     }
 
+    fun getBenefitDetails(): Map<String, Int> {
+        var benefitDetails = mutableMapOf<String, Int>()
+        if (weekEvent.checkMatch()) benefitDetails["평일 할인"] = weekEvent.getBenefitAmount()
+        if (weekendEvent.checkMatch()) benefitDetails["주말 할인"] = weekendEvent.getBenefitAmount()
+        if (specialEvent.checkMatch()) benefitDetails["특별 할인"] = specialEvent.getBenefitAmount()
+        if (christmasEvent.checkMatch()) benefitDetails["크리스마스 디데이 할인"] = christmasEvent.getDiscountAmount()
+        return benefitDetails
+    }
+
 
     companion object {
         fun getTotalOrderAmount(order: Map<String, Int>): Int = order.map { (menu, count) ->
