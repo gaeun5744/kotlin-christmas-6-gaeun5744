@@ -19,7 +19,7 @@ class WeekEvent(private val date: Int, private val order: Map<String, Int>) {
 
     private fun getCountDessert(): Int {
         val dessertName = Menu.DESSERT.detailMenu.map { it.menuName }
-        return dessertName.intersect(order.keys).size
+        return dessertName.intersect(order.keys).sumOf { order[it]!! }
     }
 
 

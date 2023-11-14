@@ -19,7 +19,7 @@ class WeekendEvent(private val date: Int, private val order: Map<String, Int>) {
 
 
     private fun getCountMain(): Int {
-        val dessertName = Menu.MAIN.detailMenu.map { it.menuName }
-        return dessertName.intersect(order.keys).size
+        val mainName = Menu.MAIN.detailMenu.map { it.menuName }
+        return mainName.intersect(order.keys).sumOf { order[it]!! }
     }
 }
