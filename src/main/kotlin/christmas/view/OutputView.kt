@@ -27,7 +27,7 @@ class OutputView {
 
     fun printPresent(eventResult:String) {
         println(TITLE_PRESENT)
-        println(eventResult)
+        println(eventResult).also { println() }
     }
 
     fun printBenefitDetails(benefits: Map<String, Int>) {
