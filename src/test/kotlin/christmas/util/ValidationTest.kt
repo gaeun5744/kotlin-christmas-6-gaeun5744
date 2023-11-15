@@ -19,7 +19,7 @@ class ValidationTest {
     fun `유효하지 않은 주문 테스트`(order: String) {
         assertThatThrownBy {
             Validation.checkMenu(order)
-        }.hasMessage("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.")
+        }.isInstanceOf(IllegalArgumentException::class.java).hasMessage("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.")
     }
 
     @ParameterizedTest
