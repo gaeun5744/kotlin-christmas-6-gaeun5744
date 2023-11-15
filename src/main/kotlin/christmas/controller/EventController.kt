@@ -14,7 +14,7 @@ class EventController {
         outputView.printIntroduce()
         val date = inputView.readDate()
         val order = inputView.readOrder()
-        println("12월 ${date}일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!").also { println() }
+        outputView.printEventGuide(date).also { println() }
 
         val weekEvent = WeekEvent(date, order)
         val weekendEvent = WeekendEvent(date, order)
