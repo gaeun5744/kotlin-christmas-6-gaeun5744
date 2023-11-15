@@ -42,7 +42,7 @@ class EventController(
         outputView.printPresent(calculateEventResult.getPresent())
         outputView.printBenefitDetails(calculateEventResult.getBenefitDetails())
         outputView.printTotalBenefit(calculateEventResult.getTotalBenefit())
-        outputView.printActualPayment(getTotalOrderAmount(order) + calculateEventResult.getTotalBenefit())
+        outputView.printActualPayment(getTotalOrderAmount(order) + calculateEventResult.getTotalDiscount())
         outputView.printBadge(calculateEventResult.getEventBadge())
     }
 

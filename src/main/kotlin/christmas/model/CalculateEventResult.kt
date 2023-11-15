@@ -13,7 +13,9 @@ class CalculateEventResult(
 
     fun getTotalBenefit(
     ): Int =
-        weekEvent.getBenefit() + weekendEvent.getBenefit() + specialEvent.getBenefit() + presentEvent.getBenefit() + christmasEvent.getBenefit()
+        getTotalDiscount() + presentEvent.getBenefit()
+
+    fun getTotalDiscount():Int = weekEvent.getBenefit() + weekendEvent.getBenefit() + specialEvent.getBenefit() + christmasEvent.getBenefit()
 
 
     fun getEventBadge(): Badge {
