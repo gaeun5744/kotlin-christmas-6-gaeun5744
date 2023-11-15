@@ -38,13 +38,12 @@ class EventController(
         presentEvent: PresentEvent,
         calculateEventResult: CalculateEventResult
     ) {
-        outputView.printMenu(order).also { println() }
-        outputView.printTotalOrderAmount(getTotalOrderAmount(order)).also { println() }
-        outputView.printPresent(presentEvent.checkMatch()).also { println() }
-        outputView.printBenefitDetails(calculateEventResult.getBenefitDetails()).also { println() }
-        outputView.printTotalBenefit(calculateEventResult.getTotalBenefit()).also { println() }
+        outputView.printMenu(order)
+        outputView.printTotalOrderAmount(getTotalOrderAmount(order))
+        outputView.printPresent(presentEvent.checkMatch())
+        outputView.printBenefitDetails(calculateEventResult.getBenefitDetails())
+        outputView.printTotalBenefit(calculateEventResult.getTotalBenefit())
         outputView.printActualPayment(getTotalOrderAmount(order) + calculateEventResult.getTotalBenefit())
-            .also { println() }
         outputView.printBadge(calculateEventResult.getEventBadge())
     }
 

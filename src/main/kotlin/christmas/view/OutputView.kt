@@ -17,17 +17,17 @@ class OutputView {
         println("<주문 메뉴>")
         order.forEach { (menu, count) ->
             println("$menu ${count}개")
-        }
+        }.also { println() }
     }
 
     fun printTotalOrderAmount(amount: Int) {
         println("<할인 전 총주문 금액>")
-        println("${DecimalFormat("#,###").format(amount)}원")
+        println("${DecimalFormat("#,###").format(amount)}원").also { println() }
     }
 
     fun printPresent(isPresent: Boolean) {
         println("<증정 메뉴>")
-        if (isPresent) println("샴페인 1개") else println("없음")
+        if (isPresent) println("샴페인 1개") else println("없음").also { println() }
     }
 
     fun printBenefitDetails(benefits: Map<String, Int>) {
@@ -35,17 +35,17 @@ class OutputView {
         if (benefits.isEmpty()) println("없음")
         benefits.forEach { (benefits, amount) ->
             println("$benefits: ${DecimalFormat("#,###").format(amount)}원")
-        }
+        }.also { println() }
     }
 
     fun printTotalBenefit(totalBenefit: Int) {
         println("<총혜택 금액>")
-        println("${DecimalFormat("#,###").format(totalBenefit)}원")
+        println("${DecimalFormat("#,###").format(totalBenefit)}원").also { println() }
     }
 
     fun printActualPayment(actualPayment: Int) {
         println("<할인 후 예상 결제 금액>")
-        println("${DecimalFormat("#,###").format(actualPayment)}원")
+        println("${DecimalFormat("#,###").format(actualPayment)}원").also { println() }
     }
 
     fun printBadge(badge: Badge) {
