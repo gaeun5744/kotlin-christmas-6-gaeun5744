@@ -1,13 +1,13 @@
 package christmas.model
 
-import christmas.util.DecemberEvent
+import christmas.util.DecemberEventData
 import christmas.util.Menu
 import christmas.util.OrderManager.getTotalOrderAmount
 
 class WeekendEvent(private val date: Int, private val order: Map<String, Int>) {
 
-    private val period = DecemberEvent.WEEKEND_EVENT.period
-    private val benefitAmount = DecemberEvent.WEEKEND_EVENT.benefitAmount
+    private val period = DecemberEventData.WEEKEND_EVENT_DATA.period
+    private val benefitAmount = DecemberEventData.WEEKEND_EVENT_DATA.benefitAmount
 
     fun getBenefitAmount(): Int {
 

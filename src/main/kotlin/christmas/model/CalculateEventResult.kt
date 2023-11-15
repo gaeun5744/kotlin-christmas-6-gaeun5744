@@ -1,7 +1,7 @@
 package christmas.model
 
 import christmas.util.Badge
-import christmas.util.DecemberEvent
+import christmas.util.DecemberEventData
 
 class CalculateEventResult(
     private val weekEvent: WeekEvent,
@@ -28,11 +28,11 @@ class CalculateEventResult(
 
     fun getBenefitDetails(): Map<String, Int> {
         var benefitDetails = mutableMapOf<String, Int>()
-        if (weekEvent.checkMatch()) benefitDetails[DecemberEvent.WEEK_EVENT.eventName] = weekEvent.getBenefitAmount()
-        if (weekendEvent.checkMatch()) benefitDetails[DecemberEvent.WEEKEND_EVENT.eventName] = weekendEvent.getBenefitAmount()
-        if (specialEvent.checkMatch()) benefitDetails[DecemberEvent.SPECIAL_EVENT.eventName] = specialEvent.getBenefitAmount()
-        if (presentEvent.checkMatch()) benefitDetails[DecemberEvent.PRESENT_EVENT.eventName] = presentEvent.getBenefitAmount()
-        if (christmasEvent.checkMatch()) benefitDetails[DecemberEvent.CHRISTMAS_EVENT.eventName] = christmasEvent.getBenefitAmount()
+        if (weekEvent.checkMatch()) benefitDetails[DecemberEventData.WEEK_EVENT_DATA.eventName] = weekEvent.getBenefitAmount()
+        if (weekendEvent.checkMatch()) benefitDetails[DecemberEventData.WEEKEND_EVENT_DATA.eventName] = weekendEvent.getBenefitAmount()
+        if (specialEvent.checkMatch()) benefitDetails[DecemberEventData.SPECIAL_EVENT_DATA.eventName] = specialEvent.getBenefitAmount()
+        if (presentEvent.checkMatch()) benefitDetails[DecemberEventData.PRESENT_EVENT_DATA.eventName] = presentEvent.getBenefitAmount()
+        if (christmasEvent.checkMatch()) benefitDetails[DecemberEventData.CHRISTMAS_EVENT_DATA.eventName] = christmasEvent.getBenefitAmount()
         return benefitDetails
     }
 
