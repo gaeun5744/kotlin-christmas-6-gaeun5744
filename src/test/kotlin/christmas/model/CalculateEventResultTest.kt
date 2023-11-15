@@ -27,6 +27,11 @@ class CalculateEventResultTest {
     }
 
     @Test
+    fun `총 할인 금액 반환 테스트`(){
+        assertEquals(calculateEventResult.getTotalDiscount(), -6_246)
+    }
+
+    @Test
     fun `이벤트 배지 테스트`() {
         assertEquals(calculateEventResult.getEventBadge(), Badge.SANTA)
     }
