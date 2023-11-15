@@ -19,6 +19,6 @@ class PresentEvent(private val date: Int, private val order: Map<String, Int>):D
         date in period && getTotalOrderAmount(order) > MINIMUM_AMOUNT
 
     companion object {
-        private const val MINIMUM_AMOUNT = 12_000
+        private const val MINIMUM_AMOUNT = 120_000
     }
 }
