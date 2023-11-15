@@ -1,11 +1,12 @@
 package christmas.model
 
+import christmas.util.DecemberEvent
 import christmas.util.OrderManager.getTotalOrderAmount
 
 class ChristmasEvent(private val date: Int, private val order: Map<String, Int>) {
 
-    private val period = (1..25).toList()
-    private val discountAmount = 1_000
+    private val period = DecemberEvent.CHRISTMAS_EVENT.period
+    private val discountAmount = DecemberEvent.CHRISTMAS_EVENT.benefitAmount
 
     fun getDiscountAmount(): Int {
         if (!checkMatch()) return 0

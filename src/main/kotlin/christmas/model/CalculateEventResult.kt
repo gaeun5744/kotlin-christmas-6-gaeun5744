@@ -1,6 +1,7 @@
 package christmas.model
 
 import christmas.util.Badge
+import christmas.util.DecemberEvent
 
 class CalculateEventResult(
     private val weekEvent: WeekEvent,
@@ -27,11 +28,11 @@ class CalculateEventResult(
 
     fun getBenefitDetails(): Map<String, Int> {
         var benefitDetails = mutableMapOf<String, Int>()
-        if (weekEvent.checkMatch()) benefitDetails["평일 할인"] = weekEvent.getBenefitAmount()
-        if (weekendEvent.checkMatch()) benefitDetails["주말 할인"] = weekendEvent.getBenefitAmount()
-        if (specialEvent.checkMatch()) benefitDetails["특별 할인"] = specialEvent.getBenefitAmount()
-        if (presentEvent.checkMatch()) benefitDetails["증정 이벤트"] = presentEvent.getBenefitAmount()
-        if (christmasEvent.checkMatch()) benefitDetails["크리스마스 디데이 할인"] = christmasEvent.getDiscountAmount()
+        if (weekEvent.checkMatch()) benefitDetails[DecemberEvent.WEEK_EVENT.eventName] = weekEvent.getBenefitAmount()
+        if (weekendEvent.checkMatch()) benefitDetails[DecemberEvent.WEEKEND_EVENT.eventName] = weekendEvent.getBenefitAmount()
+        if (specialEvent.checkMatch()) benefitDetails[DecemberEvent.SPECIAL_EVENT.eventName] = specialEvent.getBenefitAmount()
+        if (presentEvent.checkMatch()) benefitDetails[DecemberEvent.PRESENT_EVENT.eventName] = presentEvent.getBenefitAmount()
+        if (christmasEvent.checkMatch()) benefitDetails[DecemberEvent.CHRISTMAS_EVENT.eventName] = christmasEvent.getDiscountAmount()
         return benefitDetails
     }
 
