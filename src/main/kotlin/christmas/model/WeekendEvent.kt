@@ -14,7 +14,7 @@ class WeekendEvent(private val date: Int, private val order: Map<String, Int>) :
     }
 
     override fun checkMatch(): Boolean =
-        date in period && getCountMain() >= MINIMUM_MAIN_COUNT && getTotalOrderAmount(order) > MINIMUM_EVENT_AMOUNT
+        date in period && getCountMain() >= MINIMUM_MAIN_COUNT && getTotalOrderAmount(order) >= MINIMUM_EVENT_AMOUNT
 
 
     private fun getCountMain(): Int {

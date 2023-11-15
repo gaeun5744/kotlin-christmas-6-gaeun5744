@@ -14,7 +14,7 @@ class WeekEvent(private val date: Int, private val order: Map<String, Int>) : De
     }
 
     override fun checkMatch(): Boolean =
-        date in period && getCountDessert() >= MINIMUM_DESSERT_COUNT && getTotalOrderAmount(order) > MINIMUM_EVENT_AMOUNT
+        date in period && getCountDessert() >= MINIMUM_DESSERT_COUNT && getTotalOrderAmount(order) >= MINIMUM_EVENT_AMOUNT
 
 
     private fun getCountDessert(): Int {

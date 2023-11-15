@@ -17,7 +17,7 @@ class ChristmasEvent(private val date: Int, private val order: Map<String, Int>)
     }
 
     override fun checkMatch(): Boolean =
-        date in period && getTotalOrderAmount(order) > MINIMUM_EVENT_AMOUNT
+        date in period && getTotalOrderAmount(order) >= MINIMUM_EVENT_AMOUNT
 
     companion object {
         private const val BENEFIT_UNIT = 100
