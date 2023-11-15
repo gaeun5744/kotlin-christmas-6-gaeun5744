@@ -15,7 +15,7 @@ class ValidationTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["아스파라거스-1,해산물파스타-1", "타파스-0,티본스테이크-2", "시저샐러드 3개", "제로콜라-1/바비큐립-1"])
+    @ValueSource(strings = ["아스파라거스-1,해산물파스타-1", "타파스-0,티본스테이크-2", "시저샐러드 3개", "제로콜라-1/바비큐립-1", "시저샐러드-1,시저샐러드-1"])
     fun `유효하지 않은 주문 테스트`(order: String) {
         assertThatThrownBy {
             Validation.checkMenu(order)
