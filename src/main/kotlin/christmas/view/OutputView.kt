@@ -6,52 +6,70 @@ import java.text.DecimalFormat
 class OutputView {
 
     fun printIntroduce() {
-        println("안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.")
+        println(INTRODUCE_MESSAGE)
     }
 
     fun printEventGuide(date: Int) {
-        println("12월 ${date}일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!")
+        println(getEventGuideMessage(date))
     }
 
     fun printMenu(order: Map<String, Int>) {
-        println("<주문 메뉴>")
+        println(TITLE_ORDER)
         order.forEach { (menu, count) ->
-            println("$menu ${count}개")
+            println(getOrderMessage(menu, count))
         }.also { println() }
     }
 
     fun printTotalOrderAmount(amount: Int) {
-        println("<할인 전 총주문 금액>")
-        println("${formatComma(amount)}원").also { println() }
+        println(TITLE_ORDER_PAYMENT)
+        println("${formatComma(amount)}$MONETARY_UNIT").also { println() }
     }
 
     fun printPresent(isPresent: Boolean) {
-        println("<증정 메뉴>")
-        if (isPresent) println("샴페인 1개") else println("없음").also { println() }
+        println(TITLE_PRESENT)
+        if (isPresent) println(WIN_PRESENT_EVENT) else println(FAIL_EVENT).also { println() }
     }
 
     fun printBenefitDetails(benefits: Map<String, Int>) {
-        println("<혜택 내역>")
-        if (benefits.isEmpty()) println("없음")
+        println(TITLE_BENEFIT_DETAIL)
+        if (benefits.isEmpty()) println(FAIL_EVENT)
         benefits.forEach { (benefits, amount) ->
-            println("$benefits: ${formatComma(amount)}원")
+            println("$benefits: ${formatComma(amount)}$MONETARY_UNIT")
         }.also { println() }
     }
 
     fun printTotalBenefit(totalBenefit: Int) {
-        println("<총혜택 금액>")
-        println("${formatComma(totalBenefit)}원").also { println() }
+        println(TITLE_TOTAL_BENEFIT)
+        println("${formatComma(totalBenefit)}$MONETARY_UNIT").also { println() }
     }
 
     fun printActualPayment(actualPayment: Int) {
-        println("<할인 후 예상 결제 금액>")
-        println("${formatComma(actualPayment)}원").also { println() }
+        println(TITLE_REAL_PAYMENT)
+        println("${formatComma(actualPayment)}$MONETARY_UNIT").also { println() }
     }
 
     private fun formatComma(actualPayment: Int): String = DecimalFormat("#,###").format(actualPayment)
 
     fun printBadge(badge: Badge) {
-        println("<12월 이벤트 배지>")
+        println(TITLE_BADGE)
         println(badge.badgeName)
+    }
+
+    companion object {
+        private const val INTRODUCE_MESSAGE = "안녕하세요! 우테코 식당 12월 이벤트 플래너입니다."
+        private const val TITLE_ORDER = "<주문 메뉴>"
+        private const val TITLE_ORDER_PAYMENT = "<할인 전 총주문 금액>"
+        private const val TITLE_PRESENT = "<증정 메뉴>"
+        private const val TITLE_BENEFIT_DETAIL = "<혜택 내역>"
+        private const val TITLE_TOTAL_BENEFIT = "<총혜택 금액>"
+        private const val TITLE_REAL_PAYMENT = "<할인 후 예상 결제 금액>"
+        private const val TITLE_BADGE = "<12월 이벤트 배지>"
+
+        private const val WIN_PRESENT_EVENT = "샴페인 1개"
+        private const val FAIL_EVENT = "없음"
+
+        private const val MONETARY_UNIT = "원"
+        fun getEventGuideMessage(date: Int) = "12월 ${date}일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!"
+        fun getOrderMessage(menu: String, count: Int) = "$menu ${count}개"
     }
 }
