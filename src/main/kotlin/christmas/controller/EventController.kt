@@ -22,14 +22,16 @@ class EventController {
         val presentEvent = PresentEvent(date, order)
         val christmasEvent = ChristmasEvent(date, order)
 
-        val calculateEventResult = CalculateEventResult(weekEvent, weekendEvent, specialEvent, presentEvent, christmasEvent)
+        val calculateEventResult =
+            CalculateEventResult(weekEvent, weekendEvent, specialEvent, presentEvent, christmasEvent)
 
         outputView.printMenu(order).also { println() }
         outputView.printTotalOrderAmount(getTotalOrderAmount(order)).also { println() }
         outputView.printPresent(presentEvent.checkMatch()).also { println() }
         outputView.printBenefitDetails(calculateEventResult.getBenefitDetails()).also { println() }
         outputView.printTotalBenefit(calculateEventResult.getTotalBenefit()).also { println() }
-        outputView.printActualPayment(getTotalOrderAmount(order) + calculateEventResult.getTotalBenefit()).also { println() }
+        outputView.printActualPayment(getTotalOrderAmount(order) + calculateEventResult.getTotalBenefit())
+            .also { println() }
         outputView.printBadge(calculateEventResult.getEventBadge())
     }
 

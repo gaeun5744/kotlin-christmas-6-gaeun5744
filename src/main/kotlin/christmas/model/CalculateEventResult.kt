@@ -1,7 +1,6 @@
 package christmas.model
 
 import christmas.util.Badge
-import christmas.util.DetailMenu
 
 class CalculateEventResult(
     private val weekEvent: WeekEvent,

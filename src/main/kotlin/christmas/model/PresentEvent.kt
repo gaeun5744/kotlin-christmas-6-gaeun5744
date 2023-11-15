@@ -9,9 +9,9 @@ class PresentEvent(private val date: Int, private val order: Map<String, Int>) {
 
     fun getBenefitAmount(): Int {
         if (!checkMatch()) return 0
-        return - benefitAmount
+        return -benefitAmount
     }
 
     fun checkMatch(): Boolean =
-        date in period  && getTotalOrderAmount(order) > 12_0000
+        date in period && getTotalOrderAmount(order) > 12_0000
 }
