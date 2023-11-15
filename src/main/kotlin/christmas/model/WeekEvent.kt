@@ -8,11 +8,11 @@ import christmas.util.DecemberEvent
 class WeekEvent(private val date: Int, private val order: Map<String, Int>): DecemberEvent() {
 
     override val period = DecemberEventData.WEEK_EVENT_DATA.period
-    override val benefitAmount = DecemberEventData.WEEK_EVENT_DATA.benefitAmount
+    override val benefitCriteria = DecemberEventData.WEEK_EVENT_DATA.benefitAmount
 
-    override fun getBenefitAmount(): Int {
+    override fun getBenefit(): Int {
         if (!checkMatch()) return 0
-        return -getCountDessert() * benefitAmount
+        return -getCountDessert() * benefitCriteria
     }
 
     override fun checkMatch(): Boolean =

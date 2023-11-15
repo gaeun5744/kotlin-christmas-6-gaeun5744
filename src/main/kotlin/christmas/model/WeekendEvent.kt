@@ -8,11 +8,11 @@ import christmas.util.OrderManager.getTotalOrderAmount
 class WeekendEvent(private val date: Int, private val order: Map<String, Int>):DecemberEvent() {
 
     override val period = DecemberEventData.WEEKEND_EVENT_DATA.period
-    override val benefitAmount = DecemberEventData.WEEKEND_EVENT_DATA.benefitAmount
+    override val benefitCriteria = DecemberEventData.WEEKEND_EVENT_DATA.benefitAmount
 
-    override fun getBenefitAmount(): Int {
+    override fun getBenefit(): Int {
         if (!checkMatch()) return 0
-        return -getCountMain() * benefitAmount
+        return -getCountMain() * benefitCriteria
     }
 
     override fun checkMatch(): Boolean =

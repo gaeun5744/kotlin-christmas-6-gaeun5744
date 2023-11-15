@@ -17,7 +17,7 @@ class WeekEventTest {
     @ParameterizedTest
     @MethodSource("provideGetBenefitExample")
     fun `평일 이벡트 혜택 내역 테스트`(weekEvent: WeekEvent, expectedResult: Int) {
-        assertEquals(weekEvent.getBenefitAmount(), expectedResult)
+        assertEquals(weekEvent.getBenefit(), expectedResult)
     }
 
     companion object {

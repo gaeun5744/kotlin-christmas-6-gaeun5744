@@ -13,7 +13,7 @@ class CalculateEventResult(
 
     fun getTotalBenefit(
     ): Int =
-        weekEvent.getBenefitAmount() + weekendEvent.getBenefitAmount() + specialEvent.getBenefitAmount() + presentEvent.getBenefitAmount() + christmasEvent.getBenefitAmount()
+        weekEvent.getBenefit() + weekendEvent.getBenefit() + specialEvent.getBenefit() + presentEvent.getBenefit() + christmasEvent.getBenefit()
 
 
     fun getEventBadge(): Badge {
@@ -28,11 +28,11 @@ class CalculateEventResult(
 
     fun getBenefitDetails(): Map<String, Int> {
         var benefitDetails = mutableMapOf<String, Int>()
-        if (weekEvent.checkMatch()) benefitDetails[DecemberEventData.WEEK_EVENT_DATA.eventName] = weekEvent.getBenefitAmount()
-        if (weekendEvent.checkMatch()) benefitDetails[DecemberEventData.WEEKEND_EVENT_DATA.eventName] = weekendEvent.getBenefitAmount()
-        if (specialEvent.checkMatch()) benefitDetails[DecemberEventData.SPECIAL_EVENT_DATA.eventName] = specialEvent.getBenefitAmount()
-        if (presentEvent.checkMatch()) benefitDetails[DecemberEventData.PRESENT_EVENT_DATA.eventName] = presentEvent.getBenefitAmount()
-        if (christmasEvent.checkMatch()) benefitDetails[DecemberEventData.CHRISTMAS_EVENT_DATA.eventName] = christmasEvent.getBenefitAmount()
+        if (weekEvent.checkMatch()) benefitDetails[DecemberEventData.WEEK_EVENT_DATA.eventName] = weekEvent.getBenefit()
+        if (weekendEvent.checkMatch()) benefitDetails[DecemberEventData.WEEKEND_EVENT_DATA.eventName] = weekendEvent.getBenefit()
+        if (specialEvent.checkMatch()) benefitDetails[DecemberEventData.SPECIAL_EVENT_DATA.eventName] = specialEvent.getBenefit()
+        if (presentEvent.checkMatch()) benefitDetails[DecemberEventData.PRESENT_EVENT_DATA.eventName] = presentEvent.getBenefit()
+        if (christmasEvent.checkMatch()) benefitDetails[DecemberEventData.CHRISTMAS_EVENT_DATA.eventName] = christmasEvent.getBenefit()
         return benefitDetails
     }
 

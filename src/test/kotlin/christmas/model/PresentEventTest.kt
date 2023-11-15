@@ -16,7 +16,7 @@ class PresentEventTest {
     @ParameterizedTest
     @MethodSource("provideGetBenefitExample")
     fun `증정 이벡트 혜택 내역 테스트`(presentEvent: PresentEvent, expectedResult: Int) {
-        assertEquals(presentEvent.getBenefitAmount(), expectedResult)
+        assertEquals(presentEvent.getBenefit(), expectedResult)
     }
 
     companion object {

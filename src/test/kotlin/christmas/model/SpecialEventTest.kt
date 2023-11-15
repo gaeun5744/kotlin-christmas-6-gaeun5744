@@ -15,7 +15,7 @@ class SpecialEventTest{
     @ParameterizedTest
     @MethodSource("provideGetBenefitExample")
     fun `특별 이벡트 혜택 내역 테스트`(specialEvent: SpecialEvent, expectedResult: Int) {
-        assertEquals(specialEvent.getBenefitAmount(), expectedResult)
+        assertEquals(specialEvent.getBenefit(), expectedResult)
     }
 
     companion object {

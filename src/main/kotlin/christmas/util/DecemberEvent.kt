@@ -15,9 +15,9 @@ enum class DecemberEventData(val eventName: String, val period: List<Int>, val b
 abstract class DecemberEvent() {
 
     abstract val period: List<Int>
-    abstract val benefitAmount: Int
+    abstract val benefitCriteria: Int
 
-    abstract fun getBenefitAmount(): Int
+    abstract fun getBenefit(): Int
 
     abstract fun checkMatch(): Boolean
 
