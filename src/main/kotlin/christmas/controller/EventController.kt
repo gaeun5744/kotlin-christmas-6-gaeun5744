@@ -25,6 +25,14 @@ class EventController(
         printResult(order, presentEvent, calculateEventResult)
     }
 
+    private fun getInput(): Pair<Int, Map<String, Int>> {
+        outputView.printIntroduce()
+        val date = inputView.readDate()
+        val order = inputView.readOrder()
+        outputView.printEventGuide(date).also { println() }
+        return Pair(date, order)
+    }
+
     private fun printResult(
         order: Map<String, Int>,
         presentEvent: PresentEvent,
@@ -38,14 +46,6 @@ class EventController(
         outputView.printActualPayment(getTotalOrderAmount(order) + calculateEventResult.getTotalBenefit())
             .also { println() }
         outputView.printBadge(calculateEventResult.getEventBadge())
-    }
-
-    private fun getInput(): Pair<Int, Map<String, Int>> {
-        outputView.printIntroduce()
-        val date = inputView.readDate()
-        val order = inputView.readOrder()
-        outputView.printEventGuide(date).also { println() }
-        return Pair(date, order)
     }
 
 }
