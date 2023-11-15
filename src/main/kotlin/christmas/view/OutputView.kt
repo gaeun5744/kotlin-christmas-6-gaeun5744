@@ -22,7 +22,7 @@ class OutputView {
 
     fun printTotalOrderAmount(amount: Int) {
         println("<할인 전 총주문 금액>")
-        println("${DecimalFormat("#,###").format(amount)}원").also { println() }
+        println("${formatComma(amount)}원").also { println() }
     }
 
     fun printPresent(isPresent: Boolean) {
@@ -34,19 +34,21 @@ class OutputView {
         println("<혜택 내역>")
         if (benefits.isEmpty()) println("없음")
         benefits.forEach { (benefits, amount) ->
-            println("$benefits: ${DecimalFormat("#,###").format(amount)}원")
+            println("$benefits: ${formatComma(amount)}원")
         }.also { println() }
     }
 
     fun printTotalBenefit(totalBenefit: Int) {
         println("<총혜택 금액>")
-        println("${DecimalFormat("#,###").format(totalBenefit)}원").also { println() }
+        println("${formatComma(totalBenefit)}원").also { println() }
     }
 
     fun printActualPayment(actualPayment: Int) {
         println("<할인 후 예상 결제 금액>")
-        println("${DecimalFormat("#,###").format(actualPayment)}원").also { println() }
+        println("${formatComma(actualPayment)}원").also { println() }
     }
+
+    private fun formatComma(actualPayment: Int): String = DecimalFormat("#,###").format(actualPayment)
 
     fun printBadge(badge: Badge) {
         println("<12월 이벤트 배지>")
