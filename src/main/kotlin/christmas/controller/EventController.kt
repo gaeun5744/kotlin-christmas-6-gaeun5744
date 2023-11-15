@@ -1,7 +1,7 @@
 package christmas.controller
 
 import christmas.model.*
-import christmas.model.CalculateEventResult.Companion.getTotalOrderAmount
+import christmas.util.OrderManager.getTotalOrderAmount
 import christmas.view.InputView
 import christmas.view.OutputView
 
