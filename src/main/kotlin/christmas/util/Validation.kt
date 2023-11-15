@@ -8,6 +8,12 @@ import christmas.util.OrderManager.getRefinedOrder
 
 object Validation {
 
+    private const val DATE_START = 1
+    private const val DATE_END = 31
+    private const val MINIMUM_MENU_COUNT = 1
+    private const val IS_MENU_UNIQUE = 1
+    private const val MAXIMUM_MENU_COUNT = 20
+
     fun checkDate(date: String) {
         checkIsDigit(date)
         checkDateRange(date)
@@ -22,7 +28,7 @@ object Validation {
     }
 
     private fun checkDateRange(date: String) {
-        require(date.toInt() in 1..31) {
+        require(date.toInt() in DATE_START..DATE_END) {
             INVALID_DATE
         }
     }
@@ -59,7 +65,7 @@ object Validation {
     private fun checkMenuCount(order: String) {
         val refinedOrder = getRefinedOrder(order)
         refinedOrder.values.forEach { count ->
-            require(count >= 1) {
+            require(count >= MINIMUM_MENU_COUNT) {
                 INVALID_MENU
             }
         }
@@ -69,7 +75,7 @@ object Validation {
         val refinedOrder = getRefinedOrder(order)
         val menuName = DetailMenu.values().map { it.menuName }
         refinedOrder.keys.forEach { menu ->
-            require(menuName.count { it == menu } == 1) {
+            require(menuName.count { it == menu } == IS_MENU_UNIQUE) {
                 INVALID_MENU
             }
         }
@@ -77,7 +83,7 @@ object Validation {
 
     private fun checkTotalCount(order: String) {
         val refinedOrder = getRefinedOrder(order)
-        require(refinedOrder.values.sum() <= 20) {
+        require(refinedOrder.values.sum() <= MAXIMUM_MENU_COUNT) {
             ORDER_MORE_20
         }
     }
