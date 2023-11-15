@@ -1,6 +1,6 @@
 package christmas.util
 
-enum class DecemberEventData(val eventName: String, val period: List<Int>, val benefitAmount: Int) {
+enum class DecemberEventData(val eventName: String, val period: List<Int>, val benefitCriteria: Int) {
     WEEK_EVENT_DATA(
         "평일 할인",
         listOf(3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 17, 18, 19, 20, 21, 24, 25, 26, 27, 28, 31),
