@@ -13,7 +13,7 @@ class ChristmasEvent(private val date: Int, private val order: Map<String, Int>)
 
     override fun getBenefit(): Int {
         if (!checkMatch()) return NO_BENEFIT
-        return -(benefitCriteria+ (date - 1) * BENEFIT_UNIT)
+        return -(benefitCriteria+ date * BENEFIT_UNIT)
     }
 
     override fun checkMatch(): Boolean =
