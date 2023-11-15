@@ -1,6 +1,7 @@
 package christmas.view
 
 import camp.nextstep.edu.missionutils.Console
+import christmas.util.OrderManager.getRefinedOrder
 import christmas.util.Validation
 
 class InputView {
@@ -40,11 +41,6 @@ class InputView {
                 println(e.message)
             }
         }
-    }
-
-    private fun getRefinedOrder(order: String) = order.split(",").associate { order ->
-        val (key, value) = order.split("-")
-        key to value.toInt()
     }
 
 }
