@@ -5,6 +5,7 @@ import christmas.util.ErrorMessage.INVALID_MENU
 import christmas.util.ErrorMessage.ORDER_MORE_20
 import christmas.util.ErrorMessage.ORDER_ONLY_DRINK
 import christmas.util.OrderManager.getRefinedOrder
+import java.lang.IllegalStateException
 
 object Validation {
 
@@ -48,7 +49,7 @@ object Validation {
         } catch (e: IllegalArgumentException) {
             throw IllegalArgumentException(INVALID_MENU)
         } catch (e: IndexOutOfBoundsException) {
-            throw java.lang.IndexOutOfBoundsException(INVALID_MENU)
+            throw IllegalArgumentException(INVALID_MENU)
         }
     }
 
