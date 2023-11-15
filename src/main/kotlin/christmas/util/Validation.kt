@@ -5,7 +5,6 @@ import christmas.util.ErrorMessage.INVALID_MENU
 import christmas.util.ErrorMessage.ORDER_MORE_20
 import christmas.util.ErrorMessage.ORDER_ONLY_DRINK
 import christmas.util.OrderManager.getRefinedOrder
-import java.lang.IllegalStateException
 
 object Validation {
 
@@ -75,7 +74,7 @@ object Validation {
     private fun checkUniqueOrder(order: String) {
         val orderMenus = order.split(",")
         val refinedOrder = getRefinedOrder(order)
-        require(orderMenus.size == refinedOrder.size){
+        require(orderMenus.size == refinedOrder.size) {
             INVALID_MENU
         }
     }

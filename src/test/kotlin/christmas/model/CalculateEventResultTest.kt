@@ -27,7 +27,7 @@ class CalculateEventResultTest {
     }
 
     @Test
-    fun `총 할인 금액 반환 테스트`(){
+    fun `총 할인 금액 반환 테스트`() {
         assertEquals(calculateEventResult.getTotalDiscount(), -6_246)
     }
 

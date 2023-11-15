@@ -25,7 +25,7 @@ class OutputView {
         println("${formatComma(amount)}$MONETARY_UNIT").also { println() }
     }
 
-    fun printPresent(eventResult:String) {
+    fun printPresent(eventResult: String) {
         println(TITLE_PRESENT)
         println(eventResult).also { println() }
     }
