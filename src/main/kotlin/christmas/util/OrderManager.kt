@@ -6,4 +6,9 @@ object OrderManager {
         val menu = DetailMenu.values().first { it.menuName == menu }
         menu.price * count
     }.sum()
+
+    fun getRefinedOrder(order: String) = order.split(",").associate { order ->
+        val (key, value) = order.split("-")
+        key to value.toInt()
+    }
 }

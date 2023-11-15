@@ -4,6 +4,7 @@ import christmas.util.ErrorMessage.INVALID_DATE
 import christmas.util.ErrorMessage.INVALID_MENU
 import christmas.util.ErrorMessage.ORDER_MORE_20
 import christmas.util.ErrorMessage.ORDER_ONLY_DRINK
+import christmas.util.OrderManager.getRefinedOrder
 
 object Validation {
 
@@ -43,11 +44,6 @@ object Validation {
         } catch (e: IndexOutOfBoundsException) {
             throw java.lang.IndexOutOfBoundsException(INVALID_MENU)
         }
-    }
-
-    private fun getRefinedOrder(order: String) = order.split(",").associate { order ->
-        val (key, value) = order.split("-")
-        key to value.toInt()
     }
 
     private fun checkNotMenu(order: String) {
