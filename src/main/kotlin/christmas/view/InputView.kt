@@ -23,8 +23,6 @@ class InputView {
                 return input.toInt()
             } catch (e: IllegalArgumentException) {
                 println(e.message)
-            } catch (e: IndexOutOfBoundsException) {
-                println(e.message)
             }
         }
     }
@@ -36,8 +34,6 @@ class InputView {
                 Validation.checkMenu(input)
                 return getRefinedOrder(input)
             } catch (e: IllegalArgumentException) {
-                println(e.message)
-            } catch (e: IndexOutOfBoundsException) {
                 println(e.message)
             }
         }
