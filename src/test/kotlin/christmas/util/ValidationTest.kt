@@ -11,7 +11,7 @@ class ValidationTest {
     fun `날짜 입력 유효성 검증 테스트`(date: String) {
         assertThatThrownBy {
             Validation.checkDate(date)
-        }.isInstanceOf(IllegalArgumentException::class.java).hasMessageContaining("[ERROR]")
+        }.isInstanceOf(IllegalArgumentException::class.java).hasMessage("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.")
     }
 
     @ParameterizedTest
