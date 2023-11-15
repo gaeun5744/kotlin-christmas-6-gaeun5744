@@ -3,7 +3,7 @@ package christmas.model
 import christmas.util.*
 import christmas.util.OrderManager.getTotalOrderAmount
 
-class WeekendEvent(private val date: Int, private val order: Map<String, Int>):DecemberEvent() {
+class WeekendEvent(private val date: Int, private val order: Map<String, Int>) : DecemberEvent() {
 
     override val period = DecemberEventData.WEEKEND_EVENT_DATA.period
     override val benefitCriteria = DecemberEventData.WEEKEND_EVENT_DATA.benefitCriteria

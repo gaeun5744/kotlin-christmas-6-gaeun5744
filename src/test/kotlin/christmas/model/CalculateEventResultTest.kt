@@ -27,12 +27,12 @@ class CalculateEventResultTest {
     }
 
     @Test
-    fun `이벤트 배지 테스트`(){
+    fun `이벤트 배지 테스트`() {
         assertEquals(calculateEventResult.getEventBadge(), Badge.SANTA)
     }
 
     @Test
-    fun `총 주문 금액 테스트`(){
+    fun `총 주문 금액 테스트`() {
         assertEquals(getTotalOrderAmount(order), 142_000)
     }
 

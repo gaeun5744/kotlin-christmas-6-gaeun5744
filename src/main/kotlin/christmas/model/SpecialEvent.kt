@@ -7,7 +7,7 @@ import christmas.util.NO_BENEFIT
 import christmas.util.OrderManager.getTotalOrderAmount
 
 
-class SpecialEvent(private val date: Int, private val order: Map<String, Int>):DecemberEvent() {
+class SpecialEvent(private val date: Int, private val order: Map<String, Int>) : DecemberEvent() {
 
     override val period = DecemberEventData.SPECIAL_EVENT_DATA.period
     override val benefitCriteria = DecemberEventData.SPECIAL_EVENT_DATA.benefitCriteria
