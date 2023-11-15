@@ -1,5 +1,7 @@
 package christmas.util
 
+import christmas.util.ErrorMessage.INVALID_DATE
+import christmas.util.ErrorMessage.INVALID_MENU
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
@@ -11,7 +13,7 @@ class ValidationTest {
     fun `날짜 입력 유효성 검증 테스트`(date: String) {
         assertThatThrownBy {
             Validation.checkDate(date)
-        }.isInstanceOf(IllegalArgumentException::class.java).hasMessage("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.")
+        }.isInstanceOf(IllegalArgumentException::class.java).hasMessage(INVALID_DATE)
     }
 
     @ParameterizedTest
@@ -19,7 +21,7 @@ class ValidationTest {
     fun `유효하지 않은 주문 테스트`(order: String) {
         assertThatThrownBy {
             Validation.checkMenu(order)
-        }.isInstanceOf(IllegalArgumentException::class.java).hasMessage("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.")
+        }.isInstanceOf(IllegalArgumentException::class.java).hasMessage(INVALID_MENU)
     }
 
     @ParameterizedTest
@@ -27,7 +29,12 @@ class ValidationTest {
     fun `주문 불가 상황 테스트`(order: String) {
         assertThatThrownBy {
             Validation.checkMenu(order)
-        }.isInstanceOf(IllegalArgumentException::class.java).hasMessageContaining("[ERROR]")
+        }.isInstanceOf(IllegalArgumentException::class.java).hasMessageContaining(ERROR, RETRY_MESSAGE)
+    }
+
+    companion object {
+        private const val RETRY_MESSAGE = "다시 입력해 주세요."
+        private const val ERROR = "[ERROR]"
     }
 
 
