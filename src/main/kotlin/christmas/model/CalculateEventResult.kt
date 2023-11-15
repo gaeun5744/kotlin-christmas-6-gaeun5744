@@ -13,7 +13,7 @@ class CalculateEventResult(
 
     fun getTotalBenefit(
     ): Int =
-        weekEvent.getBenefitAmount() + weekendEvent.getBenefitAmount() + specialEvent.getBenefitAmount() + presentEvent.getBenefitAmount() + christmasEvent.getDiscountAmount()
+        weekEvent.getBenefitAmount() + weekendEvent.getBenefitAmount() + specialEvent.getBenefitAmount() + presentEvent.getBenefitAmount() + christmasEvent.getBenefitAmount()
 
 
     fun getEventBadge(): Badge {
@@ -32,7 +32,7 @@ class CalculateEventResult(
         if (weekendEvent.checkMatch()) benefitDetails[DecemberEvent.WEEKEND_EVENT.eventName] = weekendEvent.getBenefitAmount()
         if (specialEvent.checkMatch()) benefitDetails[DecemberEvent.SPECIAL_EVENT.eventName] = specialEvent.getBenefitAmount()
         if (presentEvent.checkMatch()) benefitDetails[DecemberEvent.PRESENT_EVENT.eventName] = presentEvent.getBenefitAmount()
-        if (christmasEvent.checkMatch()) benefitDetails[DecemberEvent.CHRISTMAS_EVENT.eventName] = christmasEvent.getDiscountAmount()
+        if (christmasEvent.checkMatch()) benefitDetails[DecemberEvent.CHRISTMAS_EVENT.eventName] = christmasEvent.getBenefitAmount()
         return benefitDetails
     }
 

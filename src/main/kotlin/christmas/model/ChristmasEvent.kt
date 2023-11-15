@@ -8,7 +8,7 @@ class ChristmasEvent(private val date: Int, private val order: Map<String, Int>)
     private val period = DecemberEvent.CHRISTMAS_EVENT.period
     private val discountAmount = DecemberEvent.CHRISTMAS_EVENT.benefitAmount
 
-    fun getDiscountAmount(): Int {
+    fun getBenefitAmount(): Int {
         if (!checkMatch()) return 0
         return -(discountAmount + (date - 1) * 100)
     }
