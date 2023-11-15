@@ -1,7 +1,7 @@
 package christmas.model
 
-import christmas.model.CalculateEventResult.Companion.getTotalOrderAmount
 import christmas.util.Badge
+import christmas.util.OrderManager.getTotalOrderAmount
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
