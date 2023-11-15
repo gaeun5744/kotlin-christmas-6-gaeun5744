@@ -72,12 +72,10 @@ object Validation {
     }
 
     private fun checkUniqueOrder(order: String) {
+        val orderMenus = order.split(",")
         val refinedOrder = getRefinedOrder(order)
-        val menuName = DetailMenu.values().map { it.menuName }
-        refinedOrder.keys.forEach { menu ->
-            require(menuName.count { it == menu } == IS_MENU_UNIQUE) {
-                INVALID_MENU
-            }
+        require(orderMenus.size == refinedOrder.size){
+            INVALID_MENU
         }
     }
 
