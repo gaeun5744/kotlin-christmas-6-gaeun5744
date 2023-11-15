@@ -1,18 +1,18 @@
 package christmas.model
 
-import christmas.model.CalculateResult.Companion.getTotalOrderAmount
+import christmas.model.CalculateEventResult.Companion.getTotalOrderAmount
 import christmas.util.Badge
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class CalculateResultTest {
+class CalculateEventResultTest {
 
-    private lateinit var calculateResult: CalculateResult
+    private lateinit var calculateEventResult: CalculateEventResult
 
     @BeforeEach
     fun setUp() {
-        calculateResult = CalculateResult(
+        calculateEventResult = CalculateEventResult(
             WeekEvent(date, order),
             WeekendEvent(date, order),
             SpecialEvent(date, order),
@@ -23,12 +23,12 @@ class CalculateResultTest {
 
     @Test
     fun `총 혜택 금액 반환 테스트`() {
-        assertEquals(calculateResult.getTotalBenefit(), -31_246)
+        assertEquals(calculateEventResult.getTotalBenefit(), -31_246)
     }
 
     @Test
     fun `이벤트 배지 테스트`(){
-        assertEquals(calculateResult.getEventBadge(), Badge.SANTA)
+        assertEquals(calculateEventResult.getEventBadge(), Badge.SANTA)
     }
 
     @Test

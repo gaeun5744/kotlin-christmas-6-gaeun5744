@@ -1,6 +1,6 @@
 package christmas.model
 
-import christmas.model.CalculateResult.Companion.getTotalOrderAmount
+import christmas.model.CalculateEventResult.Companion.getTotalOrderAmount
 import christmas.util.Menu
 
 class WeekendEvent(private val date: Int, private val order: Map<String, Int>) {

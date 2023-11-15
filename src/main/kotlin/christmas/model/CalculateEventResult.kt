@@ -3,7 +3,7 @@ package christmas.model
 import christmas.util.Badge
 import christmas.util.DetailMenu
 
-class CalculateResult(
+class CalculateEventResult(
     private val weekEvent: WeekEvent,
     private val weekendEvent: WeekendEvent,
     private val specialEvent: SpecialEvent,
