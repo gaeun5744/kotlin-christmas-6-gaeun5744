@@ -36,4 +36,13 @@ class CalculateEventResult(
         return benefitDetails
     }
 
+    fun getPresent():String =
+        if (presentEvent.checkMatch()) WIN_PRESENT_EVENT else FAIL_PRESENT_EVENT
+
+
+    companion object {
+        private const val WIN_PRESENT_EVENT = "샴페인 1개"
+        private const val FAIL_PRESENT_EVENT = "없음"
+    }
+
 }

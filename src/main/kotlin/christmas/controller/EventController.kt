@@ -22,7 +22,7 @@ class EventController(
         val calculateEventResult =
             CalculateEventResult(weekEvent, weekendEvent, specialEvent, presentEvent, christmasEvent)
 
-        printResult(order, presentEvent, calculateEventResult)
+        printResult(order, calculateEventResult)
     }
 
     private fun getInput(): Pair<Int, Map<String, Int>> {
@@ -35,12 +35,11 @@ class EventController(
 
     private fun printResult(
         order: Map<String, Int>,
-        presentEvent: PresentEvent,
         calculateEventResult: CalculateEventResult
     ) {
         outputView.printMenu(order)
         outputView.printTotalOrderAmount(getTotalOrderAmount(order))
-        outputView.printPresent(presentEvent.checkMatch())
+        outputView.printPresent(calculateEventResult.getPresent())
         outputView.printBenefitDetails(calculateEventResult.getBenefitDetails())
         outputView.printTotalBenefit(calculateEventResult.getTotalBenefit())
         outputView.printActualPayment(getTotalOrderAmount(order) + calculateEventResult.getTotalBenefit())

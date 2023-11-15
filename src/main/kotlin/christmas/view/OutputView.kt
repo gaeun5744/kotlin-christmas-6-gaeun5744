@@ -25,9 +25,9 @@ class OutputView {
         println("${formatComma(amount)}$MONETARY_UNIT").also { println() }
     }
 
-    fun printPresent(isPresent: Boolean) {
+    fun printPresent(eventResult:String) {
         println(TITLE_PRESENT)
-        if (isPresent) println(WIN_PRESENT_EVENT) else println(FAIL_EVENT).also { println() }
+        println(eventResult)
     }
 
     fun printBenefitDetails(benefits: Map<String, Int>) {
@@ -65,7 +65,6 @@ class OutputView {
         private const val TITLE_REAL_PAYMENT = "<할인 후 예상 결제 금액>"
         private const val TITLE_BADGE = "<12월 이벤트 배지>"
 
-        private const val WIN_PRESENT_EVENT = "샴페인 1개"
         private const val FAIL_EVENT = "없음"
 
         private const val MONETARY_UNIT = "원"
