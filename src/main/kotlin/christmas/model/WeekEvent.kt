@@ -4,6 +4,7 @@ import christmas.util.DecemberEventData
 import christmas.util.Menu
 import christmas.util.OrderManager.getTotalOrderAmount
 import christmas.util.DecemberEvent
+import christmas.util.MINIMUM_EVENT_AMOUNT
 
 class WeekEvent(private val date: Int, private val order: Map<String, Int>): DecemberEvent() {
 
@@ -16,7 +17,7 @@ class WeekEvent(private val date: Int, private val order: Map<String, Int>): Dec
     }
 
     override fun checkMatch(): Boolean =
-        date in period && getCountDessert() > 0 && getTotalOrderAmount(order) > 10_000
+        date in period && getCountDessert() > 0 && getTotalOrderAmount(order) > MINIMUM_EVENT_AMOUNT
 
 
     private fun getCountDessert(): Int {
