@@ -25,6 +25,6 @@ enum class DetailMenu(val menuName: String, val price: Int) {
     CHOCOLATE_CAKE("초코케이크", 15_000),
     ICE_CREAM("아이스크림", 5_000),
     ZERO_COKE("제로콜라", 3_000),
-    RED_WINE("레드와인", 6_000),
+    RED_WINE("레드와인", 60_000),
     SHAMPANGE("샴페인", 25_000);
 }
