@@ -11,3 +11,14 @@ enum class DecemberEventData(val eventName: String, val period: List<Int>, val b
     PRESENT_EVENT_DATA("증정 이벤트", (1..31).toList(), 25_000),
     CHRISTMAS_EVENT_DATA("크리스마스 디데이 할인", (1..25).toList(), 1_000)
 }
+
+abstract class DecemberEvent() {
+
+    abstract val period: List<Int>
+    abstract val benefitAmount: Int
+
+    abstract fun getBenefitAmount(): Int
+
+    abstract fun checkMatch(): Boolean
+
+}

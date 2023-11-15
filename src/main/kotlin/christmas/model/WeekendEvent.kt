@@ -1,21 +1,21 @@
 package christmas.model
 
+import christmas.util.DecemberEvent
 import christmas.util.DecemberEventData
 import christmas.util.Menu
 import christmas.util.OrderManager.getTotalOrderAmount
 
-class WeekendEvent(private val date: Int, private val order: Map<String, Int>) {
+class WeekendEvent(private val date: Int, private val order: Map<String, Int>):DecemberEvent() {
 
-    private val period = DecemberEventData.WEEKEND_EVENT_DATA.period
-    private val benefitAmount = DecemberEventData.WEEKEND_EVENT_DATA.benefitAmount
+    override val period = DecemberEventData.WEEKEND_EVENT_DATA.period
+    override val benefitAmount = DecemberEventData.WEEKEND_EVENT_DATA.benefitAmount
 
-    fun getBenefitAmount(): Int {
-
+    override fun getBenefitAmount(): Int {
         if (!checkMatch()) return 0
         return -getCountMain() * benefitAmount
     }
 
-    fun checkMatch(): Boolean =
+    override fun checkMatch(): Boolean =
         date in period && getCountMain() > 0 && getTotalOrderAmount(order) > 10_000
 
 
