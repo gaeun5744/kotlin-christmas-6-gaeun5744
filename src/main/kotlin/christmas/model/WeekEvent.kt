@@ -1,10 +1,7 @@
 package christmas.model
 
-import christmas.util.DecemberEventData
-import christmas.util.Menu
+import christmas.util.*
 import christmas.util.OrderManager.getTotalOrderAmount
-import christmas.util.DecemberEvent
-import christmas.util.MINIMUM_EVENT_AMOUNT
 
 class WeekEvent(private val date: Int, private val order: Map<String, Int>): DecemberEvent() {
 
@@ -12,17 +9,21 @@ class WeekEvent(private val date: Int, private val order: Map<String, Int>): Dec
     override val benefitCriteria = DecemberEventData.WEEK_EVENT_DATA.benefitCriteria
 
     override fun getBenefit(): Int {
-        if (!checkMatch()) return 0
+        if (!checkMatch()) return NO_BENEFIT
         return -getCountDessert() * benefitCriteria
     }
 
     override fun checkMatch(): Boolean =
-        date in period && getCountDessert() > 0 && getTotalOrderAmount(order) > MINIMUM_EVENT_AMOUNT
+        date in period && getCountDessert() >= MINIMUM_DESSERT_COUNT && getTotalOrderAmount(order) > MINIMUM_EVENT_AMOUNT
 
 
     private fun getCountDessert(): Int {
         val dessertName = Menu.DESSERT.detailMenu.map { it.menuName }
         return dessertName.intersect(order.keys).sumOf { order[it]!! }
+    }
+
+    companion object {
+        private const val MINIMUM_DESSERT_COUNT = 1
     }
 
 }

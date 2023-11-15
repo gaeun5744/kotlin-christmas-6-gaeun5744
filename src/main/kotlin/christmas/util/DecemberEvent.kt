@@ -13,6 +13,7 @@ enum class DecemberEventData(val eventName: String, val period: List<Int>, val b
 }
 
 const val MINIMUM_EVENT_AMOUNT = 10_000
+const val NO_BENEFIT = 0
 
 abstract class DecemberEvent() {
 
