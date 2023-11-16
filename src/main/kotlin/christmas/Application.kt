@@ -1,5 +1,7 @@
 package christmas
 
+import christmas.controller.EventController
+
 fun main() {
-    TODO("프로그램 구현")
+    EventController().run()
 }
